@@ -22,7 +22,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'bird_the_world' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', ('bird_the_world') ),
 				'after'  => '</div>',
 			)
 		);
