@@ -23,13 +23,13 @@
 define( 'DB_NAME', 'bird_the_world' );
 
 /** MySQL database username */
-define( 'DB_USER', 'cuonglea' );
+define( 'DB_USER', 'bird_account' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'Cuongmlny2106!' );
+define( 'DB_PASSWORD', 'bird123123!' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', '45.77.45.184' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
