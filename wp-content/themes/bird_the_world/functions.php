@@ -142,10 +142,13 @@ add_action( 'widgets_init', 'bird_the_world_widgets_init' );
 function bird_the_world_scripts() {
 	wp_enqueue_style( 'bird_the_world-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style('boostrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', array(), _S_VERSION);
+	wp_enqueue_style('app-css',  get_template_directory_uri() . './assets/css/app.css', array(), _S_VERSION);
+
+
 
 	wp_enqueue_script( 'bird_the_world-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js', array(), _S_VERSION);
-	
+	wp_enqueue_script( 'iconify', 'https://code.iconify.design/2/2.0.3/iconify.min.js', array(), _S_VERSION);
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

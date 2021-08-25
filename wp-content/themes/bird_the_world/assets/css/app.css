@@ -1,0 +1,67 @@
+body,
+html {
+  font-family: "Roboto", sans-serif;
+}
+.site-title a {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+}
+.top-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+}
+.top-menu li {
+  padding: 10px 40px;
+}
+.top-menu li a {
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: black;
+}
+.intro_block {
+  background-size: 51%;
+  background-position: top right;
+  background-repeat: no-repeat;
+  height: 960px;
+}
+.heading_title {
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: 0.035em;
+  padding-top: 129px;
+  font-weight: normal;
+}
+.search_bird {
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 17px 30px;
+  outline: none;
+  min-width: 385px;
+}
+#header_search{
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+}
+.search_bird_button{
+    background: #EE4316;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-left: 30px;
+    outline: none;
+    border: none;
+    color: white;
+}
+.search_bird_button svg {
+    width: 29px;
+    height: 29px;
+}
