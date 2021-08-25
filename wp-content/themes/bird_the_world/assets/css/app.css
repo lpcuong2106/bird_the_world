@@ -46,22 +46,72 @@ html {
   outline: none;
   min-width: 385px;
 }
-#header_search{
-    display: flex;
-    align-items: center;
-    margin-top: 60px;
+#header_search {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
 }
-.search_bird_button{
-    background: #EE4316;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    margin-left: 30px;
-    outline: none;
-    border: none;
-    color: white;
+.search_bird_button {
+  background: #ee4316;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-left: 30px;
+  outline: none;
+  border: none;
+  color: white;
 }
 .search_bird_button svg {
-    width: 29px;
-    height: 29px;
+  width: 29px;
+  height: 29px;
+}
+
+/* HOME PAGE */
+.home-page_direct_step {
+  font-weight: normal;
+  font-size: 72px;
+  line-height: 84px;
+  color: #000000;
+}
+.home-page_direct_des {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.035em;
+  color: #c4c4c4;
+}
+.home-page {
+  margin-top: 128px;
+}
+.step-one{
+    margin-top: 82px;
+}
+.step-one b {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  margin-top: 33px;
+  display: inline-block;
+}
+.step-one p {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  margin-top: 30px;
+  color: #9a999a;
+}
+.step-one_icon {
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 84px;
+  height: 84px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.step-one_icon svg {
+  width: 50px;
+  height: 50px;
+  font-weight: normal;
 }
