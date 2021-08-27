@@ -67,5 +67,4 @@ $query_animal = new WP_Query($args);
 </main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

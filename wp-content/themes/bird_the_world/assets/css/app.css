@@ -32,7 +32,7 @@ html {
   height: 960px;
 }
 .heading_title {
-  font-size: 72px;
+  font-size: 64px;
   line-height: 84px;
   letter-spacing: 0.035em;
   padding-top: 129px;
@@ -72,13 +72,13 @@ html {
 /* HOME PAGE */
 .home-page_direct_step {
   font-weight: normal;
-  font-size: 72px;
+  font-size: 48px;
   line-height: 84px;
   color: #000000;
 }
 .home-page_direct_des {
   font-weight: normal;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 28px;
   letter-spacing: 0.035em;
   color: #c4c4c4;
@@ -136,7 +136,7 @@ html {
 }
 .footer_title {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 28px;
   margin-bottom: 25px;
   text-transform: uppercase;
@@ -321,4 +321,84 @@ html {
 .page_404 img {
   max-width: 100%;
   height: 656px;
+}
+/* SIDEBAR MENU */
+.single-animal {
+  padding-top: 90px;
+}
+.menu-aside {
+  position: relative;
+}
+.menu-aside .aside-menu {
+  list-style: none;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  padding-top: 40px;
+  position: relative;
+}
+
+.menu-aside .aside-menu li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 22px;
+  display: inline-block;
+}
+.menu-aside .aside-menu li a svg {
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+
+.menu-aside .title_aside {
+  position: absolute;
+  top: -25px;
+  background: #26929b;
+  margin-bottom: 0;
+  border-radius: 31px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  color: #ffffff;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  z-index: 9;
+  padding: 10px 0px;
+}
+/* DETAIL PAGE */
+.single-animal .animal_detail .info {
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  padding: 26px 12px;
+  margin-bottom: 60px;
+}
+.animal_detail_title {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: #000000;
+}
+.animal_detail_sort_info {
+  border-left: 3px solid #000000;
+  margin-top: 28px;
+}
+.animal_detail_sort_info p {
+  margin-left: 16px;
+}
+.animal_detail_share {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+}
+.animal_detail_share p {
+  margin: 0;
+  margin-right: 10px;
+}
+.animal_detail_share > div {
+  margin-right: 10px;
+}
+.animal_detail_share .fb_iframe_widget {
+  display: flex;
 }
