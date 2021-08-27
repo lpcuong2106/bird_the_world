@@ -30,7 +30,7 @@
 		<div <?php if (!is_home()) : ?> class="search_header_bg" style="<?= 'background-image: url(' . get_template_directory_uri() . '/assets/img/header_search.png' . ')' ?>" <?php endif ?>>
 			<header id="masthead" class="container">
 				<div class="site-branding">
-					<div class="row" data-aos="fade-up" data-aos-offset="5" data-aos-duration="20" data-aos-easing="ease" data-aos-once="true" data-aos-easing="linear">
+					<div class="row" <?php if (is_home()) : ?> data-aos="fade-up" data-aos-offset="5" data-aos-duration="20" data-aos-easing="ease" data-aos-once="true" data-aos-easing="linear" <?php endif ?>>
 						<div class="col-md-4">
 							<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
 						</div>
@@ -58,7 +58,7 @@
 									</h2>
 									<form id="header_search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
 										<input type="text" class="search_bird" name="s" placeholder="Tìm kiếm..." value="<?php echo get_search_query(); ?>">
-										<input name="post_type" value="animals-post" class="hidden" />
+										<!-- <input name="post_type" value="animals-post" class="hidden" /> -->
 										<button type="submit" class="search_bird_button"><span class="iconify" data-icon="fluent:search-28-regular"></span></button>
 									</form>
 								</div>
@@ -71,7 +71,6 @@
 									<button type="submit" class="search_animal_button">
 										<span class="iconify" data-icon="ei:search"></span>
 									</button>
-									<input name="post_type" value="animals-post" class="hidden" />
 									<input type="text" class="search_animal" name="s" placeholder="Tìm động vật..." value="<?php echo get_search_query(); ?>">
 								</div>
 							</form>

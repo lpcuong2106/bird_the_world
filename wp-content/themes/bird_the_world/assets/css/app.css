@@ -169,6 +169,11 @@ html {
   text-align: center;
   padding: 66px 35px;
   margin-bottom: 98px;
+  transition: all 0.3s ease-in-out;
+}
+
+.animal:hover {
+  box-shadow: 1px 1px 10px 7px rgb(0 0 0 / 6%);
 }
 
 .animal_info__title {
@@ -248,7 +253,7 @@ html {
 /* PAGE SEARCH */
 .page_search {
   background-color: #f3f5f7;
-  padding: 67px 0;
+  padding: 67px 0 150px 0;
 }
 .page_search .des_search {
   text-align: center;
@@ -259,7 +264,36 @@ html {
   margin-top: 9px;
   margin-bottom: 34px;
 }
-
+.paginate_nav {
+  text-align: center;
+  margin-top: 150px;
+}
+.paginate_nav a {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
+  padding: 0 12px;
+  text-decoration: none;
+}
+.paginate_nav span {
+  position: relative;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
+  padding: 0 12px;
+  text-decoration: none;
+}
+.paginate_nav span::after {
+  content: " ";
+  position: absolute;
+  background: #ee4316;
+  width: 30px;
+  height: 3px;
+  left: 3px;
+  bottom: -10px;
+}
 .title_search {
   font-size: 36px;
   line-height: 42px;
@@ -275,4 +309,9 @@ html {
 .search_section .animal {
   padding: 50px 0 25px 0;
   margin-bottom: 30px;
+}
+
+/* 404 */
+.no-results.not-found {
+  text-align: center;
 }

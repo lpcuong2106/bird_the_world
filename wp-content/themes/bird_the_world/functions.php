@@ -159,6 +159,28 @@ function bird_the_world_scripts()
 }
 add_action('wp_enqueue_scripts', 'bird_the_world_scripts');
 
+function wp_corenavi_table($custom_query = null)
+{
+	global $wp_query;
+	if ($custom_query) $main_query = $custom_query;
+	else $main_query = $wp_query;
+	$big = 999999999;
+	$total = isset($main_query->max_num_pages) ? $main_query->max_num_pages : '';
+	if ($total > 1) echo '<div class="paginate_links">';
+	echo paginate_links(array(
+		'base'        => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+		'format'   => '%#%',
+		'current'  => max(1, get_query_var('paged')),
+		'total'    => $total,
+		'mid_size' => '10',
+		'prev_text'    => 'Xem trước',
+		'next_text'    => 'Xem tiếp',
+	));
+	if ($total > 1) echo '</div>';
+}
+
+
+
 /**
  * Implement the Custom Header feature.
  */
