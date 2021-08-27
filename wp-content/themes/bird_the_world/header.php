@@ -27,59 +27,55 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
-		<header id="masthead" class="container">
-			<div class="site-branding">
-				<!-- <?php
-						the_custom_logo();
-						if (is_front_page() && is_home()) :
-						?>
-				<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-				<?php
-						else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-				<?php
-						endif;
-						$bird_the_world_description = get_bloginfo('description', 'display');
-						if ($bird_the_world_description || is_customize_preview()) :
-				?>
-				<p class="site-description"><?php echo $bird_the_world_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-											?></p>
-			<?php endif; ?> -->
-				<!-- remove -->
-
-				<div class="row">
-					<div class="col-md-4">
-						<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-					</div>
-					<div class="col-md-8">
-						<nav>
-							<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_id'        => 'primary-menu',
-									'menu_class'	=> 'top-menu',
-								)
-							);
-							?>
-						</nav>
-					</div>
-				</div>
-
-				<section class="intro_block" style="<?= 'background-image: url(' . get_template_directory_uri() . '/assets/img/bird_intro.png' . ')' ?>">
-					<div class="row">
-						<div class="col-md-6">
-							<h2 class="heading_title">
-								<b>Giúp bạn</b>
-								<br />tìm kiếm thông tin về loài chim
-							</h2>
-							<form id="header_search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
-								<input type="text" class="search_bird" name="s" placeholder="Tìm kiếm..." value="<?php echo get_search_query(); ?>">
-								<button type="submit" class="search_bird_button" ><span class="iconify" data-icon="fluent:search-28-regular"></span></button>
-							</form>
+		<div <?php if (!is_home()) : ?> class="search_header_bg" style="<?= 'background-image: url(' . get_template_directory_uri() . '/assets/img/header_search.png' . ')' ?>" <?php endif ?>>
+			<header id="masthead" class="container">
+				<div class="site-branding">
+					<div class="row" data-aos="fade-up" data-aos-offset="5" data-aos-duration="20" data-aos-easing="ease" data-aos-once="true" data-aos-easing="linear">
+						<div class="col-md-4">
+							<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+						</div>
+						<div class="col-md-8">
+							<nav>
+								<?php
+								wp_nav_menu(
+									array(
+										'theme_location' => 'menu-1',
+										'menu_id'        => 'primary-menu',
+										'menu_class'	=> 'top-menu',
+									)
+								);
+								?>
+							</nav>
 						</div>
 					</div>
-
-				</section>
-		</header><!-- #masthead -->
+					<?php if (is_home()) : ?>
+						<section class="intro_block" style="<?= 'background-image: url(' . get_template_directory_uri() . '/assets/img/bird_intro.png' . ')' ?>">
+							<div class="row" data-aos="fade-up">
+								<div class="col-md-6" data-aos-easing="ease" data-aos-once="true" data-aos-delay="400" data-aos-easing="linear">
+									<h2 class="heading_title">
+										<b>Giúp bạn</b>
+										<br />tìm kiếm thông tin về loài động vật
+									</h2>
+									<form id="header_search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+										<input type="text" class="search_bird" name="s" placeholder="Tìm kiếm..." value="<?php echo get_search_query(); ?>">
+										<input name="post_type" value="animals-post" class="hidden" />
+										<button type="submit" class="search_bird_button"><span class="iconify" data-icon="fluent:search-28-regular"></span></button>
+									</form>
+								</div>
+							</div>
+						</section>
+					<?php else : ?>
+						<section class="search_header_form">
+							<form id="header_search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+								<div class="input_cus">
+									<button type="submit" class="search_animal_button">
+										<span class="iconify" data-icon="ei:search"></span>
+									</button>
+									<input name="post_type" value="animals-post" class="hidden" />
+									<input type="text" class="search_animal" name="s" placeholder="Tìm động vật..." value="<?php echo get_search_query(); ?>">
+								</div>
+							</form>
+						</section>
+					<?php endif ?>
+			</header><!-- #masthead -->
+		</div>

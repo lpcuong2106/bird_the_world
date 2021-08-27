@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -11,24 +12,68 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'bird_the_world' ) ); ?>">
+<footer id="colophon" class="site-footer footer_main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h6 class="footer_title">LIÊN HỆ</h6>
+				<p><?= get_bloginfo('description') ?></p>
+				<div class="info_footer">
+					<div class="info_footer_item">
+						<span class="iconify" data-icon="carbon:location"></span>
+						<p>Ladeco Building, 266 Doi Can Street, Hà Nội, Vietnam</p>
+					</div>
+					<div class="info_footer_item">
+						<span class="iconify" data-icon="fluent:mail-20-regular"></span>
+						<p><?= get_bloginfo('admin_email') ?></p>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h6 class="footer_title">DANH MỤC</h6>
 				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'bird_the_world' ), 'WordPress' );
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+						'menu_class'	=> 'footer-menu',
+					)
+				);
 				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'bird_the_world' ), 'bird_the_world', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+			</div>
+			<div class="col-md-4">
+				<h6 class="footer_title">HÌNH ẢNH ĐỆP VỀ ĐỘNG VẬT</h6>
+
+				<div class="row img_footer">
+					<div class="col-md-6">
+						<img src="<?= get_template_directory_uri() . '/assets/img/bird_footer.png' ?>" alt="">
+					</div>
+					<div class="col-md-6">
+						<img src="<?= get_template_directory_uri() . '/assets/img/bird_footer.png' ?>" alt="">
+					</div>
+					<div class="col-md-6">
+						<img src="<?= get_template_directory_uri() . '/assets/img/bird_footer.png' ?>" alt="">
+					</div>
+					<div class="col-md-6">
+						<img src="<?= get_template_directory_uri() . '/assets/img/bird_footer.png' ?>" alt="">
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div><!-- .site-info -->
+</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script>
+	AOS.init();
+</script>
 
 </body>
+
 </html>

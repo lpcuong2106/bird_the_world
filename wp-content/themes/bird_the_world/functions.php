@@ -1,18 +1,18 @@
 <?php
+
 /**
  * bird_the_world functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package bird_the_world
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define('_S_VERSION', '1.0.0');
 }
 
-if ( ! function_exists( 'bird_the_world_setup' ) ) :
+if (!function_exists('bird_the_world_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -20,17 +20,18 @@ if ( ! function_exists( 'bird_the_world_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function bird_the_world_setup() {
+	function bird_the_world_setup()
+	{
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on bird_the_world, use a find and replace
 		 * to change 'bird_the_world' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'bird_the_world', get_template_directory() . '/languages' );
+		load_theme_textdomain('bird_the_world', get_template_directory() . '/languages');
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -38,19 +39,19 @@ if ( ! function_exists( 'bird_the_world_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'bird_the_world' ),
+				'menu-1' => esc_html__('Primary', 'bird_the_world'),
 			)
 		);
 
@@ -84,7 +85,7 @@ if ( ! function_exists( 'bird_the_world_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 
 		/**
 		 * Add support for core custom logo.
@@ -102,7 +103,7 @@ if ( ! function_exists( 'bird_the_world_setup' ) ) :
 		);
 	}
 endif;
-add_action( 'after_setup_theme', 'bird_the_world_setup' );
+add_action('after_setup_theme', 'bird_the_world_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -111,22 +112,24 @@ add_action( 'after_setup_theme', 'bird_the_world_setup' );
  *
  * @global int $content_width
  */
-function bird_the_world_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'bird_the_world_content_width', 640 );
+function bird_the_world_content_width()
+{
+	$GLOBALS['content_width'] = apply_filters('bird_the_world_content_width', 640);
 }
-add_action( 'after_setup_theme', 'bird_the_world_content_width', 0 );
+add_action('after_setup_theme', 'bird_the_world_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function bird_the_world_widgets_init() {
+function bird_the_world_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'bird_the_world' ),
+			'name'          => esc_html__('Sidebar', 'bird_the_world'),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'bird_the_world' ),
+			'description'   => esc_html__('Add widgets here.', 'bird_the_world'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -134,26 +137,27 @@ function bird_the_world_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'bird_the_world_widgets_init' );
+add_action('widgets_init', 'bird_the_world_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function bird_the_world_scripts() {
-	wp_enqueue_style( 'bird_the_world-style', get_stylesheet_uri(), array(), _S_VERSION );
+function bird_the_world_scripts()
+{
+	wp_enqueue_style('bird_the_world-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_enqueue_style('boostrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', array(), _S_VERSION);
+	wp_enqueue_style('aos-css', 'https://unpkg.com/aos@2.3.1/dist/aos.css', array(), _S_VERSION);
 	wp_enqueue_style('app-css',  get_template_directory_uri() . './assets/css/app.css', array(), _S_VERSION);
 
-
-
-	wp_enqueue_script( 'bird_the_world-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js', array(), _S_VERSION);
-	wp_enqueue_script( 'iconify', 'https://code.iconify.design/2/2.0.3/iconify.min.js', array(), _S_VERSION);
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	wp_enqueue_script('iconify', 'https://code.iconify.design/2/2.0.3/iconify.min.js', array(), _S_VERSION);
+	wp_enqueue_script('aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), _S_VERSION);
+
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'bird_the_world_scripts' );
+add_action('wp_enqueue_scripts', 'bird_the_world_scripts');
 
 /**
  * Implement the Custom Header feature.
@@ -175,10 +179,11 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+require get_template_directory() . '/inc/taxonomy/animals.php';
+
 /**
  * Load Jetpack compatibility file.
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
+if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
