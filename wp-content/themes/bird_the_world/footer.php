@@ -43,7 +43,7 @@
 				?>
 			</div>
 			<div class="col-md-4">
-				<h6 class="footer_title">HÌNH ẢNH ĐỆP VỀ ĐỘNG VẬT</h6>
+				<h6 class="footer_title">HÌNH ẢNH ĐẸP VỀ ĐỘNG VẬT</h6>
 
 				<div class="row img_footer">
 					<div class="col-md-6">

@@ -50,100 +50,25 @@
         </div>
     </div>
 </section>
-
+<?php
+$query_hot_animal = new WP_Query([
+    'post_type'     => 'animals-post',
+    'posts_per_page' => 6,
+    'orderby' => 'date',
+    'order'   => 'DESC',
+    'suppress_filters' => true
+]);
+?>
 <section class="list_animal">
     <div class="container">
         <div class="row" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-            <div class="col-md-4">
-                <div class="animal">
-                    <img src="<?= get_template_directory_uri() . '/assets/img/bird_step.png' ?>" alt="">
-                    <div class="animal_info">
-                        <div class="animal_info__title">
-                            <b>Silver Breasted</b>
-                            <p>Silver Breasted</p>
-                        </div>
-                        <div class="animal_info_des">
-                            <p>Silver Breasted Silver BreastedSilver Breasted</p>
-                            <a href="">Xem thêm</a>
-                        </div>
-                    </div>
+            <?php while ($query_hot_animal->have_posts()) : $query_hot_animal->the_post()  ?>
+                <div class="col-md-4">
+                    <?php get_template_part('pages/components/animal_block'); ?>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="animal">
-                    <img src="<?= get_template_directory_uri() . '/assets/img/bird_step.png' ?>" alt="">
-                    <div class="animal_info">
-                        <div class="animal_info__title">
-                            <b>Silver Breasted</b>
-                            <p>Silver Breasted</p>
-                        </div>
-                        <div class="animal_info_des">
-                            <p>Silver Breasted Silver BreastedSilver Breasted</p>
-                            <a href="">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="animal">
-                    <img src="<?= get_template_directory_uri() . '/assets/img/bird_step.png' ?>" alt="">
-                    <div class="animal_info">
-                        <div class="animal_info__title">
-                            <b>Silver Breasted</b>
-                            <p>Silver Breasted</p>
-                        </div>
-                        <div class="animal_info_des">
-                            <p>Silver Breasted Silver BreastedSilver Breasted</p>
-                            <a href="">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="animal">
-                    <img src="<?= get_template_directory_uri() . '/assets/img/bird_step.png' ?>" alt="">
-                    <div class="animal_info">
-                        <div class="animal_info__title">
-                            <b>Silver Breasted</b>
-                            <p>Silver Breasted</p>
-                        </div>
-                        <div class="animal_info_des">
-                            <p>Silver Breasted Silver BreastedSilver Breasted</p>
-                            <a href="">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="animal">
-                    <img src="<?= get_template_directory_uri() . '/assets/img/bird_step.png' ?>" alt="">
-                    <div class="animal_info">
-                        <div class="animal_info__title">
-                            <b>Silver Breasted</b>
-                            <p>Silver Breasted</p>
-                        </div>
-                        <div class="animal_info_des">
-                            <p>Silver Breasted Silver BreastedSilver Breasted</p>
-                            <a href="">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="animal">
-                    <img src="<?= get_template_directory_uri() . '/assets/img/bird_step.png' ?>" alt="">
-                    <div class="animal_info">
-                        <div class="animal_info__title">
-                            <b>Silver Breasted</b>
-                            <p>Silver Breasted</p>
-                        </div>
-                        <div class="animal_info_des">
-                            <p>Silver Breasted Silver BreastedSilver Breasted</p>
-                            <a href="">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+
         </div>
     </div>
 </section>

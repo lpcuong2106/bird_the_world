@@ -179,7 +179,28 @@ function wp_corenavi_table($custom_query = null)
 	if ($total > 1) echo '</div>';
 }
 
-
+//Code phan trang
+function devvn_wp_corenavi($custom_query = null, $paged = null)
+{
+	global $wp_query;
+	if ($custom_query) $main_query = $custom_query;
+	else $main_query = $wp_query;
+	$paged = ($paged) ? $paged : get_query_var('paged');
+	$big = 999999999;
+	$total = isset($main_query->max_num_pages) ? $main_query->max_num_pages : '';
+	if ($total > 1) echo '<div class="pagenavi">';
+	echo paginate_links(array(
+		'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+		'format' => '?paged=%#%',
+		'current' => max(1, $paged),
+		'total' => $total,
+		'mid_size' => '10',
+		// Số trang hiển thị khi có nhiều trang trước khi hiển thị ...
+		'prev_text'   => 'Prev',
+		'next_text'    => 'Next',
+	));
+	if ($total > 1) echo '</div>';
+}
 
 /**
  * Implement the Custom Header feature.

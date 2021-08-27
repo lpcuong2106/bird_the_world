@@ -51,7 +51,7 @@ $query_animal = new WP_Query($args);
 
 			<?php endwhile;
 				// custom_pagination($query_animal->max_num_pages, "", $paged);
-				wp_corenavi_table($query_animal);
+				devvn_wp_corenavi($query_animal);
 			else :
 
 				get_template_part('template-parts/content', 'none');
