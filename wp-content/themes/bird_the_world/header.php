@@ -41,7 +41,8 @@
 									array(
 										'theme_location' => 'menu-1',
 										'menu_id'        => 'primary-menu',
-										'menu_class'	=> 'top-menu',
+										'menu_class'	=> 'top-menu seconmenu',
+										'container_class' => 'primay-meu secondary-menu'
 									)
 								);
 								?>
