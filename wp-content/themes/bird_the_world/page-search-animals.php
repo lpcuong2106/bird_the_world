@@ -38,10 +38,6 @@ $query_animal = new WP_Query($args);
                     </div>
 
                 <?php endwhile; ?>
-                <!-- // custom_pagination($query_animal->max_num_pages, "", $paged); -->
-                <div class="paginate_nav">
-                    <?php wp_corenavi_table($query_animal); ?>
-                </div>
             <?php else :
 
             get_template_part('template-parts/content', 'none');
@@ -50,6 +46,9 @@ $query_animal = new WP_Query($args);
 
         wp_reset_postdata();
             ?>
+            </div>
+            <div class="paginate_nav">
+                <?php wp_corenavi_table($query_animal); ?>
             </div>
         </div>
 

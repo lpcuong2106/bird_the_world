@@ -402,3 +402,19 @@ html {
 .animal_detail_share .fb_iframe_widget {
   display: flex;
 }
+#animal_content_tab {
+  margin-top: 30px;
+}
+#animal_tab a {
+  color: white;
+  background: #26929b;
+  margin-right: 30px;
+  padding: 10px 40px;
+}
+#animal_tab {
+  margin-top: 75px;
+}
+#animal_tab a.active {
+  background: #ee4316;
+  border-radius: 6px;
+}
