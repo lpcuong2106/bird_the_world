@@ -231,3 +231,20 @@ require get_template_directory() . '/inc/taxonomy/animals.php';
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+add_filter('nav_menu_css_class', 'so_37823371_menu_item_class', 10, 4);
+
+function so_37823371_menu_item_class($classes, $item, $args, $depth)
+{
+	$classes[] = 'menu-li-test';
+	return $classes;
+}
+if (function_exists('acf_add_options_page')) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+}

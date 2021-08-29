@@ -9,6 +9,7 @@
  *
  * @package bird_the_world
  */
+$address = get_field('address', 'option');
 
 ?>
 
@@ -21,7 +22,7 @@
 				<div class="info_footer">
 					<div class="info_footer_item">
 						<span class="iconify" data-icon="carbon:location"></span>
-						<p>Ladeco Building, 266 Doi Can Street, Hà Nội, Vietnam</p>
+						<p><?= $address ?></p>
 					</div>
 					<div class="info_footer_item">
 						<span class="iconify" data-icon="fluent:mail-20-regular"></span>

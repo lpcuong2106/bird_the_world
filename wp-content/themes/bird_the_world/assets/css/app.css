@@ -386,6 +386,10 @@ html {
 }
 .animal_detail_sort_info p {
   margin-left: 16px;
+  font-weight: bold;
+}
+.animal_detail_sort_info span {
+  font-weight: normal;
 }
 .animal_detail_share {
   margin-top: 56px;
@@ -405,6 +409,12 @@ html {
 #animal_content_tab {
   margin-top: 30px;
 }
+#animal_content_tab .general_info p {
+  font-weight: bold;
+}
+#animal_content_tab .general_info span {
+  font-weight: normal;
+}
 #animal_tab a {
   color: white;
   background: #26929b;
@@ -420,4 +430,9 @@ html {
 }
 .page-lienhe {
   margin-top: 20px;
+}
+
+.img_animal_feature {
+  max-width: 100%;
+  height: auto;
 }
