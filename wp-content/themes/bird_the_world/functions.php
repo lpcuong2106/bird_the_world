@@ -242,3 +242,26 @@ function fwp_home_custom_query($query)
 	};
 }
 add_filter('pre_get_posts', 'fwp_home_custom_query');
+
+
+function hierarchical_category_tree($cat)
+{
+	// wpse-41548 // alchymyth // a hierarchical list of all categories //
+
+	$next = get_categories('hide_empty=false&orderby=name&order=ASC&parent=' . $cat);
+
+	if ($next) :
+		foreach ($next as $cat) :
+
+			$count = $cat->parent  != 0 ? ' (' . $cat->count  . ')' : '';
+			echo '<ul><li>
+			<span class="iconify" data-icon="bi:arrow-left-circle" data-flip="horizontal"></span>
+			<a  href="' . get_category_link($cat->term_id) . '">' . $cat->name .   $count .  '</a>';
+
+			hierarchical_category_tree($cat->term_id);
+		endforeach;
+	endif;
+
+	echo '</li></ul>';
+	echo "\n";
+}

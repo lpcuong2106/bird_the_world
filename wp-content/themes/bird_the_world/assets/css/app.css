@@ -452,6 +452,11 @@ html {
   height: 96px;
   position: relative;
 }
+
+.listcate ul {
+  list-style-type: none;
+}
+
 @keyframes placeHolderShimmer {
   0% {
     background-position: -468px 0;

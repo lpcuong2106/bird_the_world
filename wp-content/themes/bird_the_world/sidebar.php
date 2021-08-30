@@ -8,9 +8,8 @@
  * @package bird_the_world
  */
 
-// if (!is_active_sidebar('sidebar-1')) {
-// 	return;
-// }
+$catgories = get_categories([]);
+
 ?>
 
 
@@ -18,15 +17,24 @@
 	<div class="menu-aside">
 		<p class="title_aside">Danh mục</p>
 		<?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-				'menu_class'	=> 'aside-menu',
-				'link_before'	=> '<span class="iconify" data-icon="bi:arrow-left-circle" data-flip="horizontal"></span>'
-			)
-		);
+
+		if (is_page_template('page-search-animals.php') || is_archive()) : ?>
+			<nav class="aside-menu listcate">
+				<?php hierarchical_category_tree(0); ?>
+			</nav>
+
+		<?php else :
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+					'menu_class'	=> 'aside-menu',
+					'link_before'	=> '<span class="iconify" data-icon="bi:arrow-left-circle" data-flip="horizontal"></span>'
+				)
+			);
+		endif
 		?>
 	</div>
+
 	<?php dynamic_sidebar('sidebar-1'); ?>
 </aside><!-- #secondary -->

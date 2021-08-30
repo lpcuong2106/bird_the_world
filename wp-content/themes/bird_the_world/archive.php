@@ -47,6 +47,9 @@ get_header();
 
 				endif; ?>
 					</div>
+					<div class="paginate_nav">
+						<?php wp_corenavi_table(); ?>
+					</div>
 				</div>
 
 				<div class="col-md-3">
@@ -56,9 +59,7 @@ get_header();
 		</div>
 
 		</div>
-		<div class="paginate_nav">
-			<?php wp_corenavi_table(); ?>
-		</div>
+
 		</div>
 
 
