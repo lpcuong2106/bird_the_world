@@ -85,7 +85,9 @@ $address = get_field('address', 'option');
 		js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
+	new Zooming().listen('img');
 </script>
+
 <script src="https://sp.zalo.me/plugins/sdk.js"></script>
 </body>
 

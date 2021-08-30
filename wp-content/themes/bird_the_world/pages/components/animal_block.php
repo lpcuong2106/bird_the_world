@@ -1,12 +1,17 @@
+<?php
+$img = get_the_post_thumbnail_url();
+
+?>
 <div class="animal">
-    <img src="<?= get_template_directory_uri() . '/assets/img/bird_step.png' ?>" alt="">
+    <img src="<?= $img ? $img :  get_template_directory_uri() . '/assets/img/default_image.png' ?>" alt="" class="animated-background">
+
     <div class="animal_info">
         <div class="animal_info__title">
             <b><?php the_title() ?></b>
-            <p><?php the_excerpt() ?></p>
+            <?php $ten_khoa_học = get_field('ten_khoa_học'); ?>
+            <p><?= (strlen($ten_khoa_học) > 30) ? substr($ten_khoa_học, 0, 30) . '...' : $ten_khoa_học ?></p>
         </div>
         <div class="animal_info_des">
-            <p><?php the_excerpt() ?></p>
             <a href="<?php the_permalink() ?>">Xem thêm</a>
         </div>
     </div>

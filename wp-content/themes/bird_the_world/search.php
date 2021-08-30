@@ -10,19 +10,21 @@
 
 get_header();
 global $wp_query;
-$paged = (get_query_var('page')) ? get_query_var('page') : 1;
-$s = get_query_var('s');
-$args = array(
-	's' => $s,
-	'posts_per_page' => 2,
-	'post_type' => 'animals-post'
-);
-$query_animal = new WP_Query($args);
+// $paged = (get_query_var('page')) ? get_query_var('page') : 1;
+// $s = get_query_var('s');
+// $args = array(
+// 	's' => $s,
+// 	'posts_per_page' => 2,
+// 	'post_type' => 'animals-post',
+// 	'orderby' => 'menu_order',
+// 	'paged' => $paged
+// );
+// $query_animal = new WP_Query($args);
 ?>
 
 <main id="primary" class="site-main  page_search">
 
-	<?php if ($query_animal->have_posts()) : ?>
+	<?php if (have_posts()) : ?>
 		<h1 class="page-title title_search">
 			<?php
 			/* translators: %s: search query. */
@@ -34,8 +36,8 @@ $query_animal = new WP_Query($args);
 			<div class="row">
 				<?php
 				/* Start the Loop */
-				while ($query_animal->have_posts()) :
-					$query_animal->the_post();
+				while (have_posts()) :
+					the_post();
 
 					/**
 					 * Run the loop for the search to output the results.
@@ -50,8 +52,7 @@ $query_animal = new WP_Query($args);
 					</div>
 
 			<?php endwhile;
-				// custom_pagination($query_animal->max_num_pages, "", $paged);
-				devvn_wp_corenavi($query_animal);
+
 			else :
 
 				get_template_part('template-parts/content', 'none');
@@ -60,6 +61,10 @@ $query_animal = new WP_Query($args);
 
 			wp_reset_postdata();
 			?>
+
+			</div>
+			<div class="paginate_nav">
+				<?php wp_corenavi_table(); ?>
 			</div>
 		</div>
 

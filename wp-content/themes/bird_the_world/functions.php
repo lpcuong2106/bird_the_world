@@ -153,6 +153,9 @@ function bird_the_world_scripts()
 	wp_enqueue_script('boostrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js', array(), _S_VERSION);
 	wp_enqueue_script('iconify', 'https://code.iconify.design/2/2.0.3/iconify.min.js', array(), _S_VERSION);
 	wp_enqueue_script('aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), _S_VERSION);
+	if (is_single()) {
+		wp_enqueue_script('zooming-js', 'https://unpkg.com/zooming@2.1.1/build/zooming.js', array(), _S_VERSION);
+	}
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -176,29 +179,6 @@ function wp_corenavi_table($custom_query = null)
 		'mid_size' => '10',
 		'prev_text'    => 'Xem trước',
 		'next_text'    => 'Xem tiếp',
-	));
-	if ($total > 1) echo '</div>';
-}
-
-//Code phan trang
-function devvn_wp_corenavi($custom_query = null, $paged = null)
-{
-	global $wp_query;
-	if ($custom_query) $main_query = $custom_query;
-	else $main_query = $wp_query;
-	$paged = ($paged) ? $paged : get_query_var('paged');
-	$big = 999999999;
-	$total = isset($main_query->max_num_pages) ? $main_query->max_num_pages : '';
-	if ($total > 1) echo '<div class="pagenavi">';
-	echo paginate_links(array(
-		'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-		'format' => '?paged=%#%',
-		'current' => max(1, $paged),
-		'total' => $total,
-		'mid_size' => '10',
-		// Số trang hiển thị khi có nhiều trang trước khi hiển thị ...
-		'prev_text'   => 'Prev',
-		'next_text'    => 'Next',
 	));
 	if ($total > 1) echo '</div>';
 }
@@ -248,3 +228,17 @@ if (function_exists('acf_add_options_page')) {
 		'redirect'		=> false
 	));
 }
+function fwp_home_custom_query($query)
+{
+	if ($query->is_archive() && $query->is_main_query()) {
+		$query->set('post_type', ['animals-post']);
+		$query->set('orderby', 'title');
+		$query->set('order', 'ASC');
+		$query->set('posts_per_page', 2);
+	}
+	if ($query->is_search) {
+		$query->set('post_type', ['animals-post']);
+		$query->set('posts_per_page', 8);
+	};
+}
+add_filter('pre_get_posts', 'fwp_home_custom_query');
