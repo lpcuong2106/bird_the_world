@@ -17,13 +17,14 @@ $bao_ton_iucn = get_field('bao_ton_iucn');
 $bao_ton_cites = get_field('bao_ton_cites');
 
 $post_categories = wp_get_post_categories(get_the_ID());
+$img = get_the_post_thumbnail_url();
 
 
 ?>
 <section class="animal_detail">
     <div class="row">
         <div class="col-md-6">
-            <img src="<?= get_the_post_thumbnail_url() ?>" alt="img_animal" class="img_animal_feature">
+            <img src="<?= $img ? $img :  get_template_directory_uri() . '/assets/img/default_image.png' ?>" alt="img_animal" class="img_animal_feature">
 
         </div>
         <div class="col-md-6">

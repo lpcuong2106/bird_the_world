@@ -20,7 +20,7 @@ $query_animal = new WP_Query($args);
 
         <div class="container">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-lg-9 col-md-12">
                     <div class="row">
                         <?php
                         /* Start the Loop */
@@ -34,7 +34,7 @@ $query_animal = new WP_Query($args);
                              */
                         ?>
 
-                            <div class="col-md-3 search_section">
+                            <div class="col-lg-3 col-md-4 search_section col-6">
                                 <?php get_template_part('pages/components/animal_block'); ?>
                             </div>
 
@@ -53,7 +53,7 @@ $query_animal = new WP_Query($args);
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3 d-lg-block d-none">
                     <?php get_sidebar(); ?>
                 </div>
             </div>

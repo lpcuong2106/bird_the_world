@@ -2,6 +2,7 @@ body,
 html {
   font-family: "Roboto", sans-serif;
 }
+
 .site-title a {
   font-style: normal;
   font-weight: bold;
@@ -29,10 +30,10 @@ html {
   background-size: 51%;
   background-position: top right;
   background-repeat: no-repeat;
-  height: 960px;
+  height: 770px;
 }
 .heading_title {
-  font-size: 64px;
+  font-size: 52px;
   line-height: 84px;
   letter-spacing: 0.035em;
   padding-top: 129px;
@@ -84,7 +85,7 @@ html {
   color: #c4c4c4;
 }
 .home-page {
-  margin-top: 128px;
+  margin-top: 80px;
   margin-bottom: 128px;
 }
 .step-one {
@@ -165,7 +166,7 @@ html {
 .animal {
   background: #ffffff;
   box-shadow: 11px 11px 40px rgba(0, 0, 0, 0.06);
-  border-radius: 42px;
+  border-radius: 15px;
   text-align: center;
   padding: 66px 35px;
   margin-bottom: 98px;
@@ -195,6 +196,8 @@ html {
   letter-spacing: 0.015em;
   margin-top: 10px;
   color: #c4c4c4;
+  min-height: 28px;
+  padding: 0 5px;
 }
 .animal_info_des a {
   font-size: 13px;
@@ -206,9 +209,10 @@ html {
 }
 
 .animal img {
-  width: 120px;
+  width: 100%;
   height: 156px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 /* SEARCH HEADER */
@@ -307,7 +311,7 @@ html {
   font-weight: bold;
 }
 .search_section .animal {
-  padding: 50px 0 25px 0;
+  padding: 15px 0 25px 0;
   margin-bottom: 30px;
 }
 
@@ -376,6 +380,10 @@ html {
   box-sizing: border-box;
   padding: 26px 12px;
   margin-bottom: 60px;
+}
+.single-animal .animal_detail .info img {
+  max-width: 100%;
+  object-fit: cover;
 }
 .animal_detail_title {
   font-weight: bold;
@@ -464,4 +472,154 @@ html {
   100% {
     background-position: 468px 0;
   }
+}
+
+/* MOBILE */
+
+@media (max-width: 991px) {
+  .animal {
+    border-radius: 10px;
+    padding: 20px 15px;
+    margin-bottom: 30px;
+  }
+  .top-menu {
+    padding: 0;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .top-menu li {
+    padding: 10px;
+  }
+  .heading_title {
+    font-size: 35px;
+    line-height: 71px;
+    padding-top: 90px;
+  }
+  .search_bird {
+    border: 1px solid #c4c4c4;
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 8px 18px;
+    outline: none;
+    min-width: 291px;
+  }
+  .intro_block {
+    height: unset;
+  }
+  .home-page_direct_step {
+    font-size: 28px;
+    line-height: 35px;
+  }
+  .step-one {
+    margin-top: 30px;
+  }
+  .step-one_icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+  }
+  .step-one_icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  .step-one b {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 0px;
+    margin-top: 28px;
+    display: inline-block;
+  }
+  .step-one p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 10px;
+    color: #9a999a;
+  }
+  .home-page {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+  .search_header_form input {
+    display: inline-block;
+    padding: 10px 52px;
+    min-width: unset;
+    width: 100%;
+  }
+  #header_search {
+    display: block;
+  }
+  .input_cus button {
+    height: 46px;
+    width: 46px;
+  }
+  .input_cus svg {
+    width: 30px;
+    height: 30px;
+  }
+  .paginate_nav span,
+  .paginate_nav a {
+    font-size: 14px;
+  }
+  .paginate_nav span::after {
+    width: 26px;
+    height: 3px;
+    left: 5px;
+    bottom: -10px;
+  }
+  .animal_detail_title {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 28px;
+  }
+  #animal_tab {
+    margin-top: 40px;
+  }
+  #animal_tab a.active {
+    padding: 6px 15px;
+  }
+  #animal_tab a {
+    padding: 6px 15px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .footer_main {
+    height: auto;
+  }
+  .info_footer {
+    margin-top: 10px;
+  }
+  .site-title {
+    text-align: center;
+  }
+  .intro_block {
+    background-image: none !important;
+  }
+  .heading_title {
+    font-size: 38px;
+    line-height: 57px;
+    padding-top: 18px;
+  }
+  .home-page_direct_step {
+    font-size: 28px;
+    line-height: 18px;
+  }
+  .home-page_direct_des {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .step-one b {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 0px;
+    margin-top: 24px;
+    display: inline-block;
+  }
+  .search_section .animal {
+    padding: 20px 0px 10px 0px;
+  }
+}
+.img_footer iframe {
+  width: 100%;
 }
