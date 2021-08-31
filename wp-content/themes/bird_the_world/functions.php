@@ -184,11 +184,6 @@ function wp_corenavi_table($custom_query = null)
 }
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -234,7 +229,7 @@ function fwp_home_custom_query($query)
 		$query->set('post_type', ['animals-post']);
 		$query->set('orderby', 'title');
 		$query->set('order', 'ASC');
-		$query->set('posts_per_page', 2);
+		$query->set('posts_per_page', 8);
 	}
 	if ($query->is_search) {
 		$query->set('post_type', ['animals-post']);

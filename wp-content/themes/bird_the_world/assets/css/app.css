@@ -582,6 +582,12 @@ html {
     padding: 6px 15px;
     margin-right: 20px;
   }
+  .page_search {
+    padding: 57px 0 1px 0;
+  }
+  .search_header_bg {
+    height: 395px;
+  }
 }
 @media (max-width: 767px) {
   .footer_main {

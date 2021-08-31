@@ -46,7 +46,7 @@ global $wp_query;
 					 */
 				?>
 
-					<div class="col-md-3 search_section">
+					<div class="col-md-3 search_section  col-6">
 						<?php get_template_part('pages/components/animal_block'); ?>
 
 					</div>
