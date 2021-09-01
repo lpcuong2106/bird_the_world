@@ -14,7 +14,7 @@ get_header();
 <main id="primary" class="site-main single-animal">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9 col-md-12">
+			<div class="col-md-9 col-sm-12">
 				<?php
 				while (have_posts()) :
 					the_post();
